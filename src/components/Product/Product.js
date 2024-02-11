@@ -8,6 +8,10 @@ const Product = props => {
   const [currentColor, setCurrentColor] = useState(props.colors[0]);
   const [currentSize, setCurrentSize] = useState(props.sizes[0].name);
 
+  const prepareColorClassName = color => {
+    return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
+  };
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -37,25 +41,19 @@ const Product = props => {
                   </button>
                 </li>
               ))}
-              {/* <li><button type="button" className={styles.active}>{currentSize}</button></li>
-              <li><button type="button">M</button></li>
-              <li><button type="button">L</button></li>
-              <li><button type="button">XL</button></li> */}
             </ul>
           </div>
           <div className={styles.colors}>
             <h3 className={styles.optionLabel}>Colors</h3>
             <ul className={styles.choices}>
-              <li><button type="button" className={clsx(styles.colorBlack, styles.active)} /></li>
-              <li><button type="button" className={clsx(styles.colorRed)} /></li>
-              <li><button type="button" className={clsx(styles.colorWhite)} /></li>
-            </ul>
-          </div>
-          <Button className={styles.button}>
-            <span className="fa fa-shopping-cart" />
-          </Button>
-        </form>
-      </div>
+                      {props.colors.map(color => (<li><button type='button' className={clsx(prepareColorClassName(color), color === currentColor && styles.active)} onClick={() => setCurrentColor(color) }></button></li>))}
+                    </ul>
+                  </div>
+                  <Button className={styles.button}>
+                    <span className="fa fa-shopping-cart" />
+                  </Button>
+                </form>
+              </div>
     </article>
   )
 };
