@@ -9,9 +9,10 @@ const Product = props => {
       <div className={styles.imageContainer}>
         <img 
           className={styles.image}
-          alt="Kodilla shirt"
-          src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`} />
+          alt={`${props.title}`}
+          src={`${process.env.PUBLIC_URL}/images/products/shirt-${props.name}--${props.currentColor}.jpg`} />
       </div>
+      
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
@@ -21,7 +22,7 @@ const Product = props => {
           <div className={styles.sizes}>
             <h3 className={styles.optionLabel}>Sizes</h3>
             <ul className={styles.choices}>
-              <li><button type="button" className={styles.active}>S</button></li>
+              <li><button type="button" className={styles.active}>{props.currentSize}</button></li>
               <li><button type="button">M</button></li>
               <li><button type="button">L</button></li>
               <li><button type="button">XL</button></li>
@@ -47,7 +48,7 @@ const Product = props => {
 Product.propTypes = {
   title: PropTypes.string.isRequired,
   basePrice: PropTypes.number.isRequired,
+  currentColor: PropTypes.string.isRequired,
 };
-
 export default Product;
 
