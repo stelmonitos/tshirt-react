@@ -46,7 +46,14 @@ const Product = props => {
           <div className={styles.colors}>
             <h3 className={styles.optionLabel}>Colors</h3>
             <ul className={styles.choices}>
-                      {props.colors.map(color => (<li><button type='button' className={clsx(prepareColorClassName(color), color === currentColor && styles.active)} onClick={() => setCurrentColor(color) }></button></li>))}
+                      {props.colors.map(color => (
+                      <li>
+                        <button
+                          type='button' 
+                          className={clsx(prepareColorClassName(color), color === currentColor && styles.active)} 
+                          onClick={() => setCurrentColor(color) }
+                        ></button>
+                      </li>))}
                     </ul>
                   </div>
                   <Button className={styles.button}>
