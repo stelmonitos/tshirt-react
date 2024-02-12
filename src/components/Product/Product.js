@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import ProductImage from '../ProductImage/ProductImage';
+
 const Product = props => {
 
   const addToCard = e => {
@@ -30,13 +32,7 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <div className={styles.imageContainer}>
-        <img 
-          className={styles.image}
-          alt={`${props.title}`}
-          src={`${process.env.PUBLIC_URL}/images/products/shirt-${props.name}--${currentColor}.jpg`} />
-      </div>
-      
+      <ProductImage name={props.name} currentColor={currentColor}/>
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
