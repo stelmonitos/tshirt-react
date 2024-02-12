@@ -12,7 +12,7 @@ const ProductImage = (props) => {
   );
 }
 
-ProductImage.proptypes = {
+ProductImage.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   currentColor: PropTypes.string.isRequired
